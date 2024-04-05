@@ -6,6 +6,8 @@ import 'package:project_1/home_page.dart';
 import 'package:project_1/main.dart';
 import 'package:project_1/models/profile_model.dart';
 
+import 'models/privacy_policy_model.dart';
+
 class ApiService{
   login({required String phonenumber,required String password}) async {
     try{
@@ -88,6 +90,37 @@ class ApiService{
     }
 
     return ProfileModel.fromJson(response.data);
+
+  }
+
+  Future<PrivacyPolicyModel?> getPrivacyPolicy()async
+  {
+    var response;
+    try{
+    response = await Dio().get(
+        ApiList.privacyPolicy,
+        options: Options(
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          validateStatus: (status) {
+            return status! < 500;
+          },
+        ),
+      );
+      if(response.statusCode == 200)
+      {
+        print('privacy policy${response.data}');
+        return PrivacyPolicyModel.fromJson(response.data);
+      }
+      
+    }catch(e){
+      print(e);
+    }
+
+    return PrivacyPolicyModel.fromJson(response.data);
 
   }
 }

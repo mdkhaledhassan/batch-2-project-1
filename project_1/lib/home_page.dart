@@ -4,6 +4,7 @@ import 'package:project_1/api-list.dart';
 import 'package:project_1/controllers/profile_controller.dart';
 import 'package:project_1/login_page.dart';
 import 'package:project_1/main.dart';
+import 'package:project_1/privacy_policy_screen.dart';
 
 class HomePage extends StatelessWidget {
  HomePage({super.key});
@@ -39,7 +40,13 @@ class HomePage extends StatelessWidget {
               ElevatedButton(onPressed: (){
                 box.remove('token');
                 Get.offAll(()=> LoginScreen());
-              }, child: Icon(Icons.logout))
+              }, child: Icon(Icons.logout)),
+              SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(onPressed: (){
+                Get.to(()=> PrivacyPolicyScreen());
+              }, child: Text('Privacy Policy'))
             ],
           ),
         ),

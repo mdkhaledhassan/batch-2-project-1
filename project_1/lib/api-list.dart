@@ -4,4 +4,5 @@ class ApiList{
   static String login = '${baseUrl}login';
   static String register = '${baseUrl}register';
   static String profile = '${baseUrl}show_profile/';
+  static String privacyPolicy = '${baseUrl}privacy_policy';
 }

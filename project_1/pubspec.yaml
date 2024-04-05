@@ -39,6 +39,7 @@ dependencies:
   dio: ^5.4.2+1
   modal_progress_hud_nsn: ^0.5.1
   get_storage: 
+  flutter_html: ^2.2.1
 
 dev_dependencies:
   flutter_test:

@@ -18,9 +18,10 @@ class PrivacyPolicyScreen extends StatelessWidget {
       ()=> SingleChildScrollView(
         child: Column(
             children: [
+              infoController.privacyPolicyModel.value.data != null?
               Html(
                 data: """ ${infoController.privacyPolicyModel.value.data.toString()} """,
-              )
+              ):CircularProgressIndicator()
             ],
           ),
       ),
